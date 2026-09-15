@@ -556,7 +556,7 @@ a.cartao:hover{border-color:var(--latao);transform:translateY(-3px)}
   gap:clamp(28px,4vw,56px);
 }
 @media (max-width:760px){.rodape__grade{grid-template-columns:1fr;gap:34px}}
-.rodape h4{
+.rodape h2{
   font-family:var(--sans);font-size:11.5px;letter-spacing:.22em;
   text-transform:uppercase;color:var(--latao);font-weight:650;margin-bottom:16px;
 }

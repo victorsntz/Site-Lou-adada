@@ -1,0 +1,7 @@
+# Louçadada · Presentes & Decoração — Araguari, MG
+# Site institucional. Tudo liberado para indexação.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://loucadada.com.br/sitemap.xml
