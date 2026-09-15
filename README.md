@@ -161,16 +161,12 @@ padrão do Python, e `/a-casa` sem barra não redireciona. Em produção os dois
 Checklist de pendências. Todas elas estão no HTML com marcador visível, de propósito,
 para não passarem despercebidas.
 
-- [ ] **WhatsApp** — trocar `5534XXXXXXXXX` pelo número real, com DDD e sem espaços,
-      em **todas as páginas**. Aparece no menu do topo, no rodapé e nos botões de
-      chamada. Conferir com:
-      `grep -rn "5534XXXXXXXXX" . --include="*.html"`
-- [ ] **Telefone da loja** — substituir `[ telefone a confirmar ]` e acrescentar o
-      campo `telephone` no JSON-LD da home e da página `/visite/`.
-- [ ] **Horário de funcionamento** — substituir `[ horário a confirmar ]`. Com o
-      horário fechado, vale acrescentar `openingHoursSpecification` no JSON-LD de
-      `/visite/`: é o que alimenta a ficha do Google.
-- [ ] **E-mail** — substituir `[ e-mail a confirmar ]`.
+- [x] **WhatsApp** — ligado: `5534998703531`, com a mensagem pronta
+      "Olá, vim pelo site e gostaria de falar com uma atendente."
+      Para trocar o número ou o texto, é um find/replace do link `wa.me` inteiro.
+- [ ] **E-mail, razão social e CNPJ** — os três aparecem como marcador visível em
+      /termos/ e /privacidade/. Sem eles, a política não identifica o controlador,
+      que é o mínimo que a LGPD exige. `grep -rn "a confirmar" . --include="*.html"`
 - [ ] **Domínio** — confirmar `https://loucadada.com.br/` como endereço definitivo.
       Se mudar, atualizar em cada página: `<link rel="canonical">`, `og:url`,
       `og:image`, os `url` dentro do JSON-LD, e as quatro `<loc>` do `sitemap.xml`
