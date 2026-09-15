@@ -19,14 +19,16 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 
+<!-- Google Tag Manager: cole o snippet do <head> aqui, com o ID real da conta.
+     O par <noscript> vai logo depois da abertura de <body>. Ver README. -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 <link rel="preload" href="/assets/fontes/figtree-latin-300_700-normal.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/assets/fontes/fraunces-latin-400_700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/assets/fontes/fontes.css" />
-<link rel="stylesheet" href="/assets/css/site.css" />
+<link rel="stylesheet" href="/assets/fontes/fontes.css?v=1" />
+<link rel="stylesheet" href="/assets/css/site.css?v=1" />
 
 <script type="application/ld+json">
 {
@@ -74,6 +76,62 @@
         {"@type":"ListItem","position":3,"name":"Presentes e listas"},
         {"@type":"ListItem","position":4,"name":"Utilidades com curadoria"}
       ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Vocês entregam e montam?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Entregamos e montamos com equipe da própria casa, sem transportadora nem montador terceirizado. Atendemos Araguari, Uberlândia e cidades vizinhas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dá para ver a peça em casa antes de decidir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dá. Levamos a peça até a sua casa, montamos no lugar e deixamos lá. Você vê na luz do dia e decide sem pressa. O que não encantou volta sem custo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vocês fazem lista de presentes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fazemos, e há muitos anos: casamento, chá de casa nova, bodas e aniversário. É montar junto, na loja ou pelo WhatsApp."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Trabalham com arquitetos e decoradoras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Recebemos o projeto, separamos peça por peça e levamos até a obra para ver no lugar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vendem pela internet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ainda não. A venda acontece na loja, na Rua Rui Barbosa, 54, em Araguari, e pelo WhatsApp."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual o horário da loja?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De segunda a sexta, das 8h30 às 18h. Sábado, das 8h30 às 13h. Domingo fechado."
+      }
     }
   ]
 }
@@ -443,6 +501,90 @@
     </div>
   </section>
 
+  <!-- PERGUNTAS QUE CHEGAM NO BALCÃO --------------------------------------- -->
+  <!-- As mesmas respostas do JSON-LD lá em cima: o que a página diz e o que o
+       Google lê têm que bater, senão o rich result some. -->
+  <section class="secao claro">
+    <div class="envelope">
+      <div class="surge">
+        <span class="sobrelinha">Perguntas que chegam no balcão</span>
+        <h2>O que a gente mais responde</h2>
+      </div>
+
+      <div class="passos mt-m surge">
+        <div class="passo">
+          <span class="passo__n">?</span>
+          <div>
+            <h3>Vocês entregam e montam?</h3>
+            <p>
+              Entregamos e montamos, com gente da casa. Não é transportadora nem
+              montador terceirizado: quem monta é quem responde depois. Entrega
+              em Araguari e também em Uberlândia e nas cidades vizinhas.
+            </p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <span class="passo__n">?</span>
+          <div>
+            <h3>Dá para ver a peça em casa antes de decidir?</h3>
+            <p>
+              Dá. A gente leva a peça até você, monta no lugar e deixa lá. Você
+              vê na luz do dia, recebe visita, decide sem pressa. O que não
+              encantou volta na mesma caminhonete, sem custo.
+            </p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <span class="passo__n">?</span>
+          <div>
+            <h3>Vocês fazem lista de presentes?</h3>
+            <p>
+              Fazemos, e faz muito tempo. Casamento, chá de casa nova, bodas e
+              aniversário. Chama no WhatsApp ou passa na loja que a gente monta
+              a lista junto com você.
+            </p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <span class="passo__n">?</span>
+          <div>
+            <h3>Trabalham com arquitetos e decoradoras?</h3>
+            <p>
+              Sim. Recebemos projeto, separamos peça por peça e levamos até a
+              obra para ver no lugar. Se você é arquiteta ou decoradora, chama
+              que a gente conversa.
+            </p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <span class="passo__n">?</span>
+          <div>
+            <h3>Vendem pela internet?</h3>
+            <p>
+              Ainda não. Hoje a venda acontece na loja, na Rua Rui Barbosa, 54,
+              e pelo WhatsApp, onde quem responde é gente da casa, com nome.
+            </p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <span class="passo__n">?</span>
+          <div>
+            <h3>Qual o horário da loja?</h3>
+            <p>
+              De segunda a sexta, das 8h30 às 18h. Sábado, das 8h30 às 13h.
+              Domingo a casa fecha.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CHAMADA FINAL ------------------------------------------------------- -->
   <section class="secao--curta">
     <div class="envelope">
@@ -503,6 +645,6 @@
   </div>
 </footer>
 
-<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/site.js?v=1" defer></script>
 </body>
 </html>

@@ -69,6 +69,23 @@ ErrorDocument 404 /404.html
 </IfModule>
 
 # --- protege o que não é do site ---------------------------------------------
+# Arquivo de desenvolvimento não é conteúdo: some da web e do Google.
 <FilesMatch "^\.(git|htaccess|gitignore)">
   Require all denied
 </FilesMatch>
+
+<FilesMatch "\.(md|json|lock|psd|ai|yml|yaml)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # a pasta de documentação e a do GitHub respondem 404, não 403:
+  # 403 vira "bloqueado por robots" no Search Console e fica incomodando
+  RewriteRule ^(docs|\.github)(/|$) - [R=404,L]
+</IfModule>
+
+# --- redirecionamentos --------------------------------------------------------
+# Regra de ouro do playbook: URL nunca morre, ela redireciona.
+# Quando alguma URL mudar, o 301 entra aqui, nesta ordem:
+#   Redirect 301 /url-antiga/ https://loucadada.com.br/url-nova/

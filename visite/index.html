@@ -19,14 +19,16 @@
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 
+<!-- Google Tag Manager: cole o snippet do <head> aqui, com o ID real da conta.
+     O par <noscript> vai logo depois da abertura de <body>. Ver README. -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 <link rel="preload" href="/assets/fontes/figtree-latin-300_700-normal.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/assets/fontes/fraunces-latin-400_700-normal.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/assets/fontes/fontes.css" />
-<link rel="stylesheet" href="/assets/css/site.css" />
+<link rel="stylesheet" href="/assets/fontes/fontes.css?v=1" />
+<link rel="stylesheet" href="/assets/css/site.css?v=1" />
 
 <script type="application/ld+json">
 {
@@ -257,6 +259,68 @@
     </div>
   </section>
 
+  <!-- DEIXAR UM RECADO ------------------------------------------------------ -->
+  <!-- Envio pelo Web3Forms, que não precisa de servidor. Antes de publicar:
+       trocar CHAVE_WEB3FORMS_AQUI pela access key da conta da loja
+       (web3forms.com, gratuito). Sem a chave, o formulário não envia. -->
+  <section class="secao claro">
+    <div class="envelope duas">
+      <div class="surge">
+        <span class="sobrelinha">Deixar um recado</span>
+        <h2>Prefere escrever?</h2>
+        <p class="linha-fina mt-p">
+          Conta o que você procura que a gente responde. Quem responde é gente da
+          casa, com nome, e não um robô de menu numerado.
+        </p>
+        <p class="form__nota mt-p">
+          Se for mais rápido, o telefone da loja é
+          <a class="link" href="tel:+553432413531">(34) 3241-3531</a>, e a gente
+          também atende no WhatsApp.
+        </p>
+      </div>
+
+      <form class="form surge" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="CHAVE_WEB3FORMS_AQUI" />
+        <input type="hidden" name="subject" value="Recado pelo site da Louçadada" />
+        <input type="hidden" name="from_name" value="Site da Louçadada" />
+        <input type="hidden" name="redirect" value="https://loucadada.com.br/obrigado/" />
+
+        <div class="campo">
+          <label for="recado-nome">Seu nome</label>
+          <input id="recado-nome" name="nome" type="text" required autocomplete="name"
+                 placeholder="Como a gente te chama" />
+        </div>
+
+        <div class="campo">
+          <label for="recado-contato">Telefone ou WhatsApp</label>
+          <input id="recado-contato" name="contato" type="tel" required autocomplete="tel"
+                 placeholder="(34) 9 0000-0000" />
+        </div>
+
+        <div class="campo">
+          <label for="recado-texto">O que você procura</label>
+          <textarea id="recado-texto" name="mensagem" required
+                    placeholder="Uma peça, um presente, montar um ambiente, uma lista de casamento"></textarea>
+        </div>
+
+        <!-- isca de robô: gente não vê, robô preenche e o envio é descartado -->
+        <div class="campo--isca" aria-hidden="true">
+          <label for="recado-isca">Não preencha este campo</label>
+          <input id="recado-isca" name="botcheck" type="checkbox" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div>
+          <button class="botao botao--azul" type="submit">Mandar o recado</button>
+        </div>
+
+        <p class="form__nota">
+          Usamos o que você escrever só para responder.
+          <a class="link" href="/privacidade/">Como a gente trata seus dados</a>.
+        </p>
+      </form>
+    </div>
+  </section>
+
   <!-- CHAMADA FINAL -------------------------------------------------------- -->
   <section class="secao--curta">
     <div class="envelope">
@@ -315,6 +379,6 @@
   </div>
 </footer>
 
-<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/site.js?v=1" defer></script>
 </body>
 </html>
