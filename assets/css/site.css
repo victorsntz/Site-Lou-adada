@@ -567,7 +567,12 @@ a.cartao:hover{border-color:var(--latao);transform:translateY(-3px)}
 
 /* --- gente da casa ------------------------------------------------------ */
 .gente{display:flex;flex-direction:column;gap:14px}
-.gente img{border-radius:var(--raio-foto);aspect-ratio:4/5;object-fit:cover;width:100%}
+.gente img{
+  border-radius:var(--raio-foto);aspect-ratio:4/5;width:100%;
+  object-fit:cover;
+  /* o corte puxa pro alto da imagem, que é onde os rostos ficam */
+  object-position:50% 22%;
+}
 .gente p.gente__papel{
   font-family:var(--caneta);font-size:23px;color:var(--latao-claro);line-height:1.1;
 }
@@ -706,3 +711,58 @@ blockquote.cartao footer{margin-top:auto;padding-top:16px;color:var(--latao)}
 .rodape__legais{display:flex;gap:20px}
 .rodape__legais a{font-size:13px;color:var(--tinta-fraca);text-decoration:none}
 .rodape__legais a:hover{color:var(--porcelana)}
+
+/* --- seção no azul da casa ----------------------------------------------- */
+/* O azul é assinatura, não parede: entra numa seção só por página, na parte
+   que merece o destaque. Aqui, o condicional, que é o coração do serviço. */
+.azul{background:var(--azul);color:var(--porcelana)}
+.azul .sobrelinha{color:var(--porcelana);opacity:.78}
+.azul .linha-fina{color:rgba(242,237,227,.92)}
+.azul .texto p,.azul .passo p,.azul .cartao p{color:rgba(242,237,227,.92)}
+.azul .nota{color:var(--porcelana)}
+.azul .citacao{border-left-color:var(--porcelana)}
+.azul .citacao footer{color:rgba(242,237,227,.75)}
+.azul .figura figcaption{color:rgba(242,237,227,.8)}
+.azul .passo{border-color:rgba(242,237,227,.26)}
+.azul .passo__n{color:var(--porcelana)}
+.azul .botao--linha{border-color:rgba(242,237,227,.5);color:var(--porcelana)}
+.azul .botao--linha:hover{border-color:var(--porcelana);background:rgba(242,237,227,.1)}
+.azul .botao--escuro{background:var(--grafite);border-color:var(--grafite)}
+.azul :focus-visible{box-shadow:0 0 0 5px rgba(20,23,25,.55)}
+
+/* --- abertura com a foto do tamanho do texto ----------------------------- */
+/* Em vez de recortar a foto numa proporção fixa, ela estica e acompanha a
+   altura da coluna de texto: topo com topo, base com base. */
+.abertura__grade--cheia{align-items:stretch}
+.abertura__grade--cheia > div{align-self:center}
+.abertura__grade--cheia .abertura__foto{display:flex}
+.abertura__grade--cheia .abertura__foto img{
+  aspect-ratio:auto;
+  height:100%;
+  width:100%;
+  object-fit:cover;
+  min-height:clamp(320px,42vw,520px);
+}
+@media (max-width:900px){
+  .abertura__grade--cheia .abertura__foto img{min-height:0;aspect-ratio:16/10}
+}
+
+/* --- selo de caso real ---------------------------------------------------- */
+/* Marca a história que aconteceu de verdade. Fica em cima da sobrelinha,
+   com filete de latão, pra quem passa o olho saber que não é exemplo. */
+.selo-caso{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--latao);
+  border-radius:999px;
+  padding:6px 15px;
+  margin-bottom:16px;
+  font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:650;
+  color:var(--latao-claro);
+}
+.selo-caso::before{
+  content:"";width:5px;height:5px;border-radius:50%;
+  background:var(--latao);flex:none;
+}
+.claro .selo-caso{color:#7D5F28;border-color:rgba(184,147,74,.6)}
+.azul .selo-caso{color:var(--porcelana);border-color:rgba(242,237,227,.5)}
+.azul .selo-caso::before{background:var(--porcelana)}
