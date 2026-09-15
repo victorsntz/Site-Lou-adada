@@ -32,6 +32,7 @@
 {
   "@context":"https://schema.org",
   "@type":"HomeGoodsStore",
+  "@id":"https://loucadada.com.br/#loja",
   "name":"Louçadada",
   "alternateName":"Louçadada Presentes & Decoração",
   "description":"Casa de decoração, mesa posta e presentes em Araguari (MG) desde 1966. Curadoria, montagem e composição de ambientes na casa do cliente.",
@@ -41,11 +42,19 @@
   "foundingDate":"1966",
   "address":{
     "@type":"PostalAddress",
-    "streetAddress":"Rua Rui Barbosa, 54",
+    "streetAddress":"Rua Rui Barbosa, 54, Centro",
+    "postalCode":"38440-222",
     "addressLocality":"Araguari",
     "addressRegion":"MG",
     "addressCountry":"BR"
   },
+  "telephone":"+55-34-3241-3531",
+  "priceRange":"$$",
+"openingHoursSpecification":[
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:30","closes":"18:00"},
+  {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:30","closes":"13:00"},
+  {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"00:00","closes":"00:00"}
+],
   "areaServed":["Araguari","Uberlândia","Triângulo Mineiro"],
   "sameAs":["https://www.instagram.com/loucadada/"]
 }
@@ -89,7 +98,8 @@
         <span class="sobrelinha">Araguari · Minas Gerais · desde 1966</span>
         <h1>A casa que<br />ensina <em>a casa</em>.</h1>
         <p class="linha-fina mt-p">
-          Decoração, mesa posta e presentes há 60 anos na Rui Barbosa. A gente
+          Decoração, mesa posta e presentes em Araguari desde 1966, e na Rui
+          Barbosa desde os anos 80. A gente
           não vende só a peça: vai até a sua casa, compõe o ambiente e ensina
           o caminho. É o que a gente sabe fazer desde sempre.
         </p>
@@ -99,14 +109,73 @@
         </div>
       </div>
 
-      <figure class="abertura__foto surge">
-        <img src="/assets/img/vitrines-acesas.webp"
-             alt="As duas vitrines iluminadas da Louçadada no fim da tarde, na Rua Rui Barbosa, em Araguari"
-             width="1080" height="1406" fetchpriority="high" decoding="async" />
-        <figcaption class="abertura__legenda">
-          As duas portas da Rui Barbosa no fim da tarde. A casa, como sempre, acesa.
-        </figcaption>
-      </figure>
+      <!-- O álbum da casa passando sozinho. Sem JS, fica a primeira foto, que já
+           conta a história. Com JS, as seis se revezam e a legenda vai junto. -->
+      <div class="album abertura__foto surge" id="album-abertura" role="group"
+           aria-roledescription="galeria" aria-label="Fotografias da Louçadada, de 1966 a hoje">
+
+        <figure class="album__item" data-ativa>
+          <img src="/assets/img/vitrines-acesas.webp"
+               alt="As duas vitrines iluminadas da Louçadada no fim da tarde, na Rua Rui Barbosa, em Araguari"
+               width="1080" height="1406" fetchpriority="high" decoding="async" />
+          <figcaption class="abertura__legenda">
+            Hoje. As duas portas da Rui Barbosa no fim da tarde, e a casa acesa como sempre.
+          </figcaption>
+        </figure>
+
+        <figure class="album__item">
+          <img src="/assets/img/desfile-letreiro.webp"
+               alt="Fotografia antiga de um desfile na Rua Rui Barbosa, com o letreiro Louça Dada acima das pessoas"
+               width="900" height="1350" loading="lazy" decoding="async" />
+          <figcaption class="abertura__legenda">
+            O letreiro no caminho do desfile. A loja já era paisagem da cidade.
+          </figcaption>
+        </figure>
+
+        <figure class="album__item">
+          <img src="/assets/img/laco-aceso.webp"
+               alt="O laço da Louçadada aceso em azul na fachada, no entardecer, com o céu rosa ao fundo"
+               width="899" height="1599" loading="lazy" decoding="async" />
+          <figcaption class="abertura__legenda">
+            O laço aceso no entardecer. De longe, a cidade já sabe qual porta é a nossa.
+          </figcaption>
+        </figure>
+
+        <figure class="album__item">
+          <img src="/assets/img/arvore-pinhas.webp"
+               alt="Árvore de Natal feita de pinhas, montada à mão no vão central da loja"
+               width="900" height="1174" loading="lazy" decoding="async" />
+          <figcaption class="abertura__legenda">
+            A árvore de pinhas do vão central, montada à mão, galho por galho.
+          </figcaption>
+        </figure>
+
+        <figure class="album__item">
+          <img src="/assets/img/familia-natal.webp"
+               alt="As duas sócias ao lado do pai, Djalma, no cenário de Natal montado dentro da loja"
+               width="900" height="1171" loading="lazy" decoding="async" />
+          <figcaption class="abertura__legenda">
+            As filhas e o pai no Natal da loja. A casa trabalha em família desde 1969.
+          </figcaption>
+        </figure>
+
+        <figure class="album__item">
+          <img src="/assets/img/casa-inteira.webp"
+               alt="A família e toda a equipe da Louçadada reunidas no salão da loja"
+               width="1080" height="968" loading="lazy" decoding="async" />
+          <figcaption class="abertura__legenda">
+            A casa inteira num retrato só: a família e o time que atende você pelo nome.
+          </figcaption>
+        </figure>
+
+        <div class="album__controles">
+          <button class="album__pausa" type="button" aria-pressed="false">
+            <span class="album__icone" aria-hidden="true"></span>
+            <span class="album__rotulo">Pausar</span>
+          </button>
+          <div class="album__pontos" role="group" aria-label="Escolher a fotografia"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -119,12 +188,12 @@
           <p class="prova__txt">O ano em que a Louçadada abriu as portas em Araguari</p>
         </div>
         <div>
-          <p class="prova__num">3</p>
-          <p class="prova__txt">Gerações da mesma família atrás do balcão</p>
+          <p class="prova__num">1969</p>
+          <p class="prova__txt">O ano em que a família comprou a loja e nunca mais soltou</p>
         </div>
         <div>
           <p class="prova__num">4 a 5</p>
-          <p class="prova__txt">Feiras por ano garimpando o que a cidade ainda não viu</p>
+          <p class="prova__txt">Feiras por ano, escolhendo peça por peça</p>
         </div>
         <div>
           <p class="prova__num">Nº 54</p>
@@ -137,8 +206,10 @@
   <!-- MANIFESTO --------------------------------------------------------- -->
   <section class="secao manifesto">
     <div class="envelope duas duas--texto-maior">
-      <div class="surge">
-        <svg class="manifesto__laco" viewBox="0 0 1080 582.32" fill="currentColor" aria-hidden="true"><use href="#laco"></use></svg>
+      <div class="manifesto__marca surge">
+        <img class="manifesto__selo" src="/assets/marca/selo.webp"
+             alt="Selo da Louçadada: Presentes &amp; Decoração, desde 1966"
+             width="560" height="560" loading="lazy" decoding="async" />
         <p class="manifesto__texto">
           Tem coisa que não se compra pronta.<br />Casa é uma delas.
         </p>
@@ -148,10 +219,10 @@
           Casa se aprende: vendo a mãe arrumar a mesa pra visita, herdando a louça
           da avó e o jeito certo de dobrar o guardanapo. A gente sabe porque
           cresceu assim, no sentido mais literal que existe: teve mamadeira tomada
-          no fundo desta loja, quando loja e casa eram o mesmo endereço.
+          no fundo da loja, quando loja e casa eram o mesmo endereço.
         </p>
         <p>
-          De lá pra cá foram 60 anos e duas gerações de noivas montando a casa nova
+          De lá pra cá foram 60 anos de noivas montando a casa nova
           por aqui. Muita coisa daquelas mesas mora até hoje nas cristaleiras da
           cidade, esperando o Natal pra sair do armário. É esse o nosso ofício: a
           peça que vira lembrança, o presente que fica depois da festa, a decoração
@@ -159,7 +230,7 @@
         </p>
         <p>
           Perguntaram pra Karla por que ela ainda trabalha tanto depois de 40 anos de
-          balcão. Ela respondeu sem pensar: <em>“Filha, eu faço por amor.”</em>
+          balcão. Ela respondeu sem pensar: <em>“Eu faço por amor.”</em>
           É isso. A Louçadada é a casa que ensina a casa. Ensina porque sabe, sabe
           porque viveu, e vive disso há 60 anos.
         </p>
@@ -175,10 +246,10 @@
     <div class="envelope">
       <div class="surge">
         <span class="sobrelinha">O que sai pela porta</span>
-        <h2>Quatro prateleiras,<br />um jeito só de escolher.</h2>
+        <h2>O que tem na loja</h2>
         <p class="linha-fina mt-p">
-          Tudo que está aqui passou pelo olho de quem garimpa feira há 40 anos.
-          O que não convenceu a gente, não chega na sua casa.
+          Quatro linhas dividem a loja. Todas passam pela mesma escolha: a Karla vê
+          peça por peça nas feiras, e o que não convence não entra.
         </p>
       </div>
 
@@ -188,8 +259,7 @@
           <h3>Decoração</h3>
           <p>
             O carro-chefe da casa. Vasos, esculturas, espelhos, quadros e os arranjos
-            que a gente monta aqui dentro. Tem peça de trinta reais e tem peça de
-            quatro mil: o que não muda é o critério.
+            que a gente monta aqui dentro. Tem cachepô a partir de R$ 29,80 e tem peça que custa muitas vezes isso. O que não muda é o critério.
           </p>
         </article>
         <article class="cartao surge">
@@ -214,126 +284,11 @@
           <span class="cartao__num">04</span>
           <h3>Utilidades com curadoria</h3>
           <p>
-            A linha que abriu a loja em 1966 e nunca saiu. Garrafa térmica, panela,
+            A linha mais antiga da casa, que nunca saiu daqui. Garrafa térmica, panela,
             o objeto de todo dia — escolhido com o mesmo olho do resto da casa.
           </p>
         </article>
       </div>
-    </div>
-  </section>
-
-  <!-- O JEITO DA CASA ---------------------------------------------------- -->
-  <section class="secao">
-    <div class="envelope">
-      <div class="duas duas--texto-maior">
-        <div class="surge">
-          <span class="sobrelinha">O jeito da casa</span>
-          <h2>A gente atravessa<br />a porta.</h2>
-          <p class="linha-fina mt-p">
-            Loja de decoração recebe cliente. A Louçadada é recebida pelo cliente.
-            Essa inversão é o que a internet não copia, e é de graça desde sempre.
-          </p>
-          <a class="botao botao--linha mt-p" href="/em-casa/">Ver como funciona</a>
-        </div>
-
-        <blockquote class="citacao surge">
-          <p>“Eu gosto de ir antes porque foto é muito diferente de você ver pessoalmente o ambiente.”</p>
-          <footer>Karla · 40 anos de casa</footer>
-        </blockquote>
-      </div>
-
-      <div class="passos mt-m surge">
-        <div class="passo">
-          <span class="passo__n">01</span>
-          <div>
-            <h3>O olho vai na feira</h3>
-            <p>
-              Quatro a cinco feiras por ano atrás do que Araguari ainda não viu. Tem
-              mercadoria que chega aqui já vendida, porque foi comprada pensando numa
-              cliente específica.
-            </p>
-          </div>
-        </div>
-        <div class="passo">
-          <span class="passo__n">02</span>
-          <div>
-            <h3>A visita vem antes da venda</h3>
-            <p>
-              Antes de sugerir qualquer peça, a gente vai ver o seu espaço. Luz, pé
-              direito, o que já tem na parede. Foto não conta a história inteira de
-              um ambiente.
-            </p>
-          </div>
-        </div>
-        <div class="passo">
-          <span class="passo__n">03</span>
-          <div>
-            <h3>O condicional dorme na sua sala</h3>
-            <p>
-              A gente enche a caminhonete, monta na sua casa e deixa lá. Você acorda,
-              vê na luz do dia, recebe visita, decide sem pressa. O que não encantou
-              volta sem custo nenhum.
-            </p>
-          </div>
-        </div>
-        <div class="passo">
-          <span class="passo__n">04</span>
-          <div>
-            <h3>A montagem é nossa</h3>
-            <p>
-              Arranjo, parede verde, mesa posta, árvore de Natal. Entrega e montagem
-              com gente da casa, não terceirizada. Quem monta é quem responde depois.
-            </p>
-          </div>
-        </div>
-        <div class="passo">
-          <span class="passo__n">05</span>
-          <div>
-            <h3>Depois da entrega, a relação continua</h3>
-            <p>
-              Cliente aqui é tratada pelo nome, do primeiro bom-dia ao WhatsApp. Quando
-              chega da feira alguma coisa com a sua cara, a gente separa e avisa.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- A CASA ENSINA A OLHAR ---------------------------------------------- -->
-  <section class="secao escuro-alto">
-    <div class="envelope">
-      <div class="surge" style="max-width:52ch">
-        <span class="sobrelinha">A aula da casa</span>
-        <h2>Bom gosto se aprende.</h2>
-        <p class="linha-fina mt-p">
-          A gente passou 60 anos explicando peça no balcão. Agora explica também aqui
-          e no Instagram: por que aquele vaso pede aquele canto, o que combina com o
-          que, onde vai o garfo de sobremesa.
-        </p>
-      </div>
-    </div>
-
-    <div class="envelope mt-m">
-      <div class="trilho surge">
-        <figure class="figura">
-          <img src="/assets/img/olhar-flores.webp" alt="Vaso de copos-de-leite sobre um aparador de madeira, ao lado de um quadro apoiado e uma luminária de latão" width="1081" height="1351" loading="lazy" decoding="async" />
-          <figcaption>Flor branca, madeira escura, latão. Três matérias e nada mais.</figcaption>
-        </figure>
-        <figure class="figura">
-          <img src="/assets/img/olhar-console.webp" alt="Aparador composto com vaso de galhos secos, livros e objetos, sob um quadro" width="1081" height="1351" loading="lazy" decoding="async" />
-          <figcaption>O canto da entrada resolvido com altura, peso e vazio.</figcaption>
-        </figure>
-        <figure class="figura">
-          <img src="/assets/img/olhar-quadro.webp" alt="Nicho de madeira iluminado com uma peça decorativa em destaque" width="1081" height="1351" loading="lazy" decoding="async" />
-          <figcaption>Luz de nicho: o jeito mais barato de transformar uma parede.</figcaption>
-        </figure>
-        <figure class="figura">
-          <img src="/assets/img/olhar-luminaria.webp" alt="Luminária de mesa acesa sobre um móvel de madeira, em ambiente de luz baixa" width="1081" height="1351" loading="lazy" decoding="async" />
-          <figcaption>Uma luminária acesa vale por três móveis novos.</figcaption>
-        </figure>
-      </div>
-      <p class="nota mt-p">é assim que a casa acende</p>
     </div>
   </section>
 
@@ -392,6 +347,53 @@
     </div>
   </section>
 
+  <!-- O QUE DIZEM ---------------------------------------------------------- -->
+  <!-- Avaliações públicas no Google, copiadas como foram escritas. Sem schema
+       de review de propósito: marcar avaliação colhida em outra plataforma é
+       justamente o que o Google desaconselha. -->
+  <section class="secao escuro-alto">
+    <div class="envelope">
+      <div class="surge">
+        <span class="sobrelinha">O que dizem</span>
+        <h2>Quem já entrou</h2>
+      </div>
+
+      <div class="grade grade--3 mt-m">
+        <blockquote class="cartao surge">
+          <p>
+            “Ótimo lugar para comprar presentes e artigos para a casa. Tem muitas
+            novidades. Lugar fino, sofisticado, de bom gosto. Ideal para fazer a
+            lista de casamento.”
+          </p>
+          <footer class="cartao__num">Avaliação no Google</footer>
+        </blockquote>
+
+        <blockquote class="cartao surge">
+          <p>
+            “A loja tradicional em Araguari. Conta com um bom número de
+            atendentes, que nos recebem muito bem, fazem entregas e retiradas
+            quando necessário. Estão há mais de 60 anos no mesmo endereço.”
+          </p>
+          <footer class="cartao__num">Avaliação no Google</footer>
+        </blockquote>
+
+        <blockquote class="cartao surge">
+          <p>
+            “Uma das lojas mais antigas e tradicionais da cidade. Bom gosto, bom
+            atendimento e preço justo. Recomendo sempre!”
+          </p>
+          <footer class="cartao__num">Avaliação no Google</footer>
+        </blockquote>
+      </div>
+
+      <p class="mt-p surge">
+        <a class="link" href="https://share.google/A6CAGvSTdn3IF518g"
+           target="_blank" rel="noopener">Ler as avaliações no Google</a>
+        <span class="so-leitor"> (abre em uma nova aba)</span>
+      </p>
+    </div>
+  </section>
+
   <!-- 60 ANOS, TEASER ----------------------------------------------------- -->
   <section class="secao claro">
     <div class="envelope duas">
@@ -402,8 +404,8 @@
         <figcaption>O letreiro no caminho do desfile. A loja já era paisagem da cidade.</figcaption>
       </figure>
       <div class="surge">
-        <span class="sobrelinha">Sessenta anos numa rua só</span>
-        <h2>Um banco quis este ponto. Não levou.</h2>
+        <span class="sobrelinha">A história da casa</span>
+        <h2>Sessenta anos na mesma rua</h2>
         <div class="texto mt-p">
           <p>
             A Louçadada abriu em 1966. Em 1969 o Djalma comprou a loja e levou pra uma
@@ -413,7 +415,7 @@
             endereço da Rui Barbosa — e o banco que quis o ponto virou vizinho.
           </p>
           <p>
-            No meio disso teve enxoval de duas gerações de noivas, uma parede que caiu
+            No meio disso teve enxoval de gerações de noivas, uma parede que caiu
             pra loja dobrar de tamanho, uma pandemia atravessada com live, e um pai de
             88 anos que continua vindo. É essa a história que está pendurada na
             fachada.
@@ -429,7 +431,7 @@
     <div class="envelope">
       <div class="chamada surge">
         <div>
-          <h2>Venha ver de perto.</h2>
+          <h2>Passe na loja</h2>
           <p>
             A loja está aberta na Rua Rui Barbosa, 54, no centro de Araguari. Se for
             mais fácil, chama no WhatsApp: a gente atende pelo nome e manda a peça
@@ -472,7 +474,7 @@
         <ul>
           <li><a href="https://wa.me/5534XXXXXXXXX" rel="noopener">WhatsApp</a></li>
           <li><a href="https://www.instagram.com/loucadada/" rel="noopener">Instagram @loucadada</a></li>
-          <li><a href="/visite/">Rua Rui Barbosa, 54 — Araguari, MG</a></li>
+          <li><a href="/visite/">Rua Rui Barbosa, 54 · Centro, Araguari (MG)</a></li>
         </ul>
       </div>
     </div>
