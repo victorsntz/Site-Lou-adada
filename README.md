@@ -164,13 +164,25 @@ para não passarem despercebidas.
 - [x] **WhatsApp** — ligado: `5534998703531`, com a mensagem pronta
       "Olá, vim pelo site e gostaria de falar com uma atendente."
       Para trocar o número ou o texto, é um find/replace do link `wa.me` inteiro.
-- [ ] **E-mail, razão social e CNPJ** — os três aparecem como marcador visível em
-      /termos/ e /privacidade/. Sem eles, a política não identifica o controlador,
-      que é o mínimo que a LGPD exige. `grep -rn "a confirmar" . --include="*.html"`
-- [ ] **Domínio** — confirmar `https://loucadada.com.br/` como endereço definitivo.
-      Se mudar, atualizar em cada página: `<link rel="canonical">`, `og:url`,
-      `og:image`, os `url` dentro do JSON-LD, e as quatro `<loc>` do `sitemap.xml`
-      mais a linha `Sitemap:` do `robots.txt`.
+- [x] **E-mail, razão social e CNPJ** — preenchidos: Loucadada de Araguari LTDA,
+      CNPJ 23.113.863/0001-70, loucadadapresentes@yahoo.com.br.
+- [ ] **Domínio** — ainda não registrado. O site inteiro usa `loucadada.com.br`
+      como endereço provisório: ele aparece em canonical, og:url, JSON-LD,
+      sitemap.xml, robots.txt e .htaccess.
+
+      Quando o domínio for decidido, **rode o script antes de publicar**:
+
+          ./trocar-dominio.sh dominioescolhido.com.br
+
+      Ele troca em todos os arquivos de uma vez e mostra quantas ocorrências
+      mexeu em cada um. Trocar na mão significa esquecer um.
+
+      Isso precisa acontecer **antes de pedir indexação no Search Console**.
+      Depois que o Google indexa, mudar de domínio joga autoridade fora.
+
+      Na consulta de 15/09/2026, `loucadada.com.br`, `loucadada.com` e
+      `loucadadapresentes.com.br` não tinham registro de DNS ativo, o que
+      sugere que estão livres. Confirme no registro.br antes de contar com isso.
 - [ ] **Fotos novas** — as imagens atuais são o acervo existente. Quando sair o ensaio
       profissional, substituir (ver abaixo) e conferir os `alt`, que descrevem cenas
       específicas das fotos atuais.
