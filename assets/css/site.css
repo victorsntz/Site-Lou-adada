@@ -729,3 +729,13 @@ blockquote.cartao footer{margin-top:auto;padding-top:16px;color:var(--latao)}
 .claro .form__nota{color:#6E6A61}
 /* o campo que só robô preenche */
 .campo--isca{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* --- link com ícone ------------------------------------------------------ */
+.com-icone{display:inline-flex;align-items:center;gap:8px}
+.com-icone .icone{width:16px;height:16px;flex:none;opacity:.85;transition:opacity var(--transicao)}
+.com-icone:hover .icone{opacity:1}
+
+/* páginas de confiança no rodapé: discretas, mas presentes em todo lugar */
+.rodape__legais{display:flex;gap:20px}
+.rodape__legais a{font-size:13px;color:var(--tinta-fraca);text-decoration:none}
+.rodape__legais a:hover{color:var(--porcelana)}
