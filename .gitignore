@@ -1,0 +1,18 @@
+# sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editores
+.vscode/
+.idea/
+*.swp
+
+# node, se um dia entrar build
+node_modules/
+npm-debug.log*
+
+# originais pesados de imagem (o site usa os .webp de /assets/img)
+/originais/
+*.psd
+*.ai

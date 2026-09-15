@@ -1,0 +1,74 @@
+# Louçadada — configuração para hospedagem Apache (cPanel, Hostgator, Locaweb e afins).
+# Em Vercel, Netlify ou GitHub Pages este arquivo é ignorado, e tudo bem:
+# lá as URLs limpas e o cache já vêm resolvidos por padrão.
+
+# --- HTTPS e domínio único ---------------------------------------------------
+# Descomente as três linhas abaixo depois que o certificado SSL estiver ativo.
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTPS} off
+#   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# --- página de erro ----------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# --- tipos de arquivo --------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/webp                     .webp
+  AddType image/svg+xml                  .svg
+  AddType font/woff2                     .woff2
+  AddType application/manifest+json      .webmanifest
+</IfModule>
+
+# --- compressão --------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  # woff2 e webp já vêm comprimidos: comprimir de novo só gasta CPU.
+</IfModule>
+
+# --- cache -------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # o HTML precisa ser sempre fresco, senão a troca de telefone demora a aparecer
+  ExpiresByType text/html                "access plus 0 seconds"
+  ExpiresByType text/css                 "access plus 1 month"
+  ExpiresByType application/javascript   "access plus 1 month"
+  ExpiresByType image/webp               "access plus 1 year"
+  ExpiresByType image/jpeg               "access plus 1 year"
+  ExpiresByType image/png                "access plus 1 year"
+  ExpiresByType image/svg+xml            "access plus 1 year"
+  ExpiresByType font/woff2               "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(woff2|webp|jpg|png|svg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # as fontes ficam no mesmo domínio, mas isso evita dor de cabeça com CDN
+  <FilesMatch "\.woff2$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+  Header set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# --- barra no fim da URL -----------------------------------------------------
+# /a-casa e /a-casa/ devem levar ao mesmo lugar, sem duplicar conteúdo no Google.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !(/$|\.)
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+</IfModule>
+
+# --- protege o que não é do site ---------------------------------------------
+<FilesMatch "^\.(git|htaccess|gitignore)">
+  Require all denied
+</FilesMatch>
