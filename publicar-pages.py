@@ -24,7 +24,7 @@ BASE = '/Site-Lou-adada/'          # subpasta em que o Pages publica
 
 FORA = {'.git', 'docs', '.github', 'node_modules'}
 ARQ_FORA = {'.htaccess', 'robots.txt', 'sitemap.xml',
-            'trocar-dominio.sh', 'publicar-pages.py', '.gitignore'}
+            'trocar-dominio.sh', 'publicar-pages.py', '.gitignore', 'README.md'}
 
 NOINDEX = ('<meta name="robots" content="noindex, nofollow" />\n'
            '<!-- Endereço provisório de teste. O noindex existe para o Google não\n'
