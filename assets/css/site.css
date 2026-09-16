@@ -13,7 +13,8 @@
   --grafite-fundo:#1C1F22;   /* um tom abaixo, pra dar profundidade de noite */
   --grafite-alto:#2C3136;    /* superfície elevada sobre o grafite */
   --azul:#1F66AC;
-  --azul-vivo:#2E7FCE;       /* só pra estado de foco/hover sobre escuro */
+  --azul-vivo:#2E7FCE;       /* o azul que respira em cima do grafite */
+  --azul-link:#5AA0E8;       /* o azul do toque: 6:1 no grafite, aguenta texto miúdo */
   --latao:#B8934A;
   --latao-claro:#CBA95F;
   --porcelana:#F2EDE3;
@@ -184,7 +185,9 @@ h3,.t-3{font-size:clamp(22px,2.2vw,29px);line-height:1.18;letter-spacing:-.012em
    também manda, e não fica de coadjuvante do nome */
 .marca__laco{width:56px;color:var(--azul-vivo);flex:none;transition:color var(--transicao)}
 .marca__nome{width:132px;color:currentColor}
-.marca:hover .marca__laco{color:var(--latao-claro)}
+/* o toque acende o azul, não troca de cor: latão é joia parada, não é estado */
+.marca:hover .marca__laco{color:var(--azul-link)}
+.claro .marca:hover .marca__laco{color:var(--azul-vivo)}
 .claro .marca{color:var(--grafite)}
 .claro .marca__laco{color:var(--azul)}
 
@@ -297,7 +300,7 @@ h3,.t-3{font-size:clamp(22px,2.2vw,29px);line-height:1.18;letter-spacing:-.012em
   padding-bottom:2px;
   transition:border-color var(--transicao),color var(--transicao);
 }
-.link:hover{color:var(--latao-claro);border-color:var(--latao-claro)}
+.link:hover{color:var(--azul-link);border-color:var(--azul-link)}
 .claro .link:hover{color:var(--azul);border-color:var(--azul)}
 
 /* --- abertura (hero) ---------------------------------------------------- */
@@ -401,6 +404,9 @@ h3,.t-3{font-size:clamp(22px,2.2vw,29px);line-height:1.18;letter-spacing:-.012em
   padding-block:clamp(30px,4vw,46px);
 }
 @media (max-width:760px){.provas{grid-template-columns:repeat(2,1fr);gap:28px}}
+.claro .provas{border-color:rgba(36,40,44,.14)}
+.claro .prova__num,.claro .cartao p.prova__num{color:var(--azul)}
+.claro .prova__txt,.claro .cartao p.prova__txt{color:#54514A}
 .prova__num{
   font-family:var(--serifa);font-size:clamp(34px,4vw,50px);
   line-height:1;color:var(--latao);font-weight:600;letter-spacing:-.02em;
@@ -431,7 +437,8 @@ h3,.t-3{font-size:clamp(22px,2.2vw,29px);line-height:1.18;letter-spacing:-.012em
 }
 .claro .cartao p{color:#54514A}
 a.cartao{text-decoration:none}
-a.cartao:hover{border-color:var(--latao);transform:translateY(-3px)}
+a.cartao:hover{border-color:var(--azul-link);transform:translateY(-3px)}
+.claro a.cartao:hover{border-color:var(--azul)}
 
 /* --- passos (o jeito da casa) ------------------------------------------- */
 .passos{counter-reset:passo;display:grid;gap:0}
@@ -466,9 +473,16 @@ a.cartao:hover{border-color:var(--latao);transform:translateY(-3px)}
   font-size:clamp(21px,2.5vw,31px);
   line-height:1.42;
   letter-spacing:-.012em;
-  max-width:24ch;
+  max-width:22ch;
   font-weight:400;
+  /* o navegador reparte as linhas sozinho e não deixa palavra sobrando
+     sozinha no fim; onde ele não entende, os espaços rígidos do HTML
+     seguram as duas últimas palavras juntas do mesmo jeito */
+  text-wrap:balance;
 }
+/* a segunda frase é a resposta da primeira: precisa de um respiro antes,
+   senão as duas viram um bloco só */
+.manifesto__texto .depois{display:block;margin-top:.62em}
 .manifesto__corpo{
   max-width:60ch;font-size:16.5px;line-height:1.75;color:var(--tinta-suave);
 }
@@ -625,9 +639,10 @@ a.cartao:hover{border-color:var(--latao);transform:translateY(-3px)}
 }
 .ficha dd{margin:0;font-size:17px;line-height:1.5}
 .ficha dd a{text-decoration:none;border-bottom:1px solid var(--linha);transition:border-color var(--transicao)}
-.ficha dd a:hover{border-color:var(--latao)}
+.ficha dd a:hover{border-color:var(--azul-link)}
 .claro .ficha dt{color:var(--azul)}
 .claro .ficha dd a{border-color:rgba(36,40,44,.25)}
+.claro .ficha dd a:hover{border-color:var(--azul)}
 
 .mapa{
   width:100%;border:0;border-radius:var(--raio-foto);
@@ -729,6 +744,12 @@ blockquote.cartao footer{margin-top:auto;padding-top:16px;color:var(--latao)}
 .azul .botao--linha:hover{border-color:var(--porcelana);background:rgba(242,237,227,.1)}
 .azul .botao--escuro{background:var(--grafite);border-color:var(--grafite)}
 .azul :focus-visible{box-shadow:0 0 0 5px rgba(20,23,25,.55)}
+/* dentro do azul o cartão afunda um tom, em vez de virar buraco branco */
+.azul .cartao{background:rgba(13,42,74,.4);border-color:rgba(242,237,227,.22)}
+.azul .cartao__num,.azul blockquote.cartao footer{color:rgba(242,237,227,.8)}
+.azul .link{border-color:rgba(242,237,227,.55)}
+.azul .link:hover{color:var(--porcelana);border-color:var(--porcelana)}
+.azul a.cartao:hover{border-color:var(--porcelana)}
 
 /* --- abertura com a foto do tamanho do texto ----------------------------- */
 /* Em vez de recortar a foto numa proporção fixa, ela estica e acompanha a
