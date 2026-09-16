@@ -555,30 +555,6 @@ a.cartao:hover{border-color:var(--azul-link);transform:translateY(-3px)}
 .trilho::-webkit-scrollbar-thumb{background:var(--linha);border-radius:99px}
 @media (max-width:640px){.trilho{grid-auto-columns:minmax(220px,78%)}}
 
-/* --- cartões de manifesto (as peças da marca, em texto de verdade) ------- */
-.peca{
-  border-radius:var(--raio);
-  padding:clamp(28px,3.4vw,42px);
-  display:flex;flex-direction:column;justify-content:space-between;
-  min-height:clamp(240px,26vw,320px);
-  font-family:var(--serifa);
-  font-size:clamp(16.5px,1.5vw,20.5px);
-  line-height:1.38;
-  letter-spacing:-.01em;
-}
-.peca p + p{margin-top:.8em}
-.peca em{font-style:italic}
-.peca__assinatura{
-  font-family:var(--sans);font-size:10.5px;letter-spacing:.24em;
-  text-transform:uppercase;font-weight:650;opacity:.62;
-  display:flex;align-items:center;gap:10px;margin-top:28px;
-}
-.peca__assinatura svg{width:26px;flex:none;opacity:.9}
-.peca--grafite{background:var(--grafite);color:var(--porcelana)}
-.peca--porcelana{background:var(--porcelana);color:var(--grafite)}
-.peca--azul{background:var(--azul);color:var(--porcelana)}
-.peca--latao{background:var(--latao);color:var(--grafite)}
-
 /* --- gente da casa ------------------------------------------------------ */
 .gente{display:flex;flex-direction:column;gap:14px}
 .gente img{
