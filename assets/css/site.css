@@ -705,12 +705,25 @@ a.cartao:hover{border-color:var(--azul-link);transform:translateY(-3px)}
 }
 .claro .laco-divisor{color:var(--azul)}
 
-/* quem já não está, fica marcada com discrição: um filete de latão à esquerda,
-   sem transformar a lembrança em enfeite */
-.gente--memoria{
-  border-left:1px solid var(--latao);
-  padding-left:clamp(16px,1.8vw,22px);
+/* quem já não está, fica marcada com discrição: um filete de latão antes do
+   papel dela, sem transformar a lembrança em enfeite. O filete fica no texto e
+   não na coluna inteira, senão a foto dela encolhia e quebrava a fila. */
+.gente--memoria .gente__papel{display:flex;align-items:center;gap:10px}
+.gente--memoria .gente__papel::before{
+  content:"";width:24px;height:1px;background:var(--latao);flex:none;
 }
+/* enquanto o retrato não chega, o lugar dele não vira buraco: fica um espaço
+   da mesma medida das outras fotos, com o laço da casa no meio */
+.gente__lacuna{
+  aspect-ratio:4/5;width:100%;
+  border-radius:var(--raio-foto);
+  background:var(--grafite-alto);
+  border:1px solid var(--linha);
+  display:grid;place-items:center;
+}
+.gente__lacuna svg{width:34%;color:var(--azul-vivo);opacity:.5}
+.claro .gente__lacuna{background:var(--porcelana-fundo);border-color:rgba(36,40,44,.12)}
+.claro .gente__lacuna svg{color:var(--azul);opacity:.42}
 
 /* depoimento usa o mesmo cartão, só com a fonte da citação no rodapé */
 blockquote.cartao p{font-family:var(--serifa);font-size:17.5px;line-height:1.5;color:var(--tinta)}
@@ -721,6 +734,25 @@ blockquote.cartao footer{margin-top:auto;padding-top:16px;color:var(--latao)}
 .com-icone{display:inline-flex;align-items:center;gap:8px}
 .com-icone .icone{width:16px;height:16px;flex:none;opacity:.85;transition:opacity var(--transicao)}
 .com-icone:hover .icone{opacity:1}
+/* quando o texto tem mais de uma linha, o ícone acompanha a primeira,
+   em vez de flutuar no meio do bloco */
+.com-icone--topo{align-items:flex-start}
+.com-icone--topo .icone{margin-top:4px}
+/* num endereço de duas linhas o filete embaixo do bloco grifaria só a última
+   linha, e isso parece erro. Aqui quem sublinha é o texto, nas duas linhas. */
+.ficha dd a.com-icone--topo{border-bottom:none}
+.ficha dd a.com-icone--topo span{
+  text-decoration:underline;text-underline-offset:4px;
+  text-decoration-color:var(--linha);
+  transition:text-decoration-color var(--transicao);
+}
+.claro .ficha dd a.com-icone--topo span{text-decoration-color:rgba(36,40,44,.25)}
+.ficha dd a.com-icone--topo:hover span{text-decoration-color:var(--azul-link)}
+.claro .ficha dd a.com-icone--topo:hover span{text-decoration-color:var(--azul)}
+
+/* os dois caminhos até a porta, lado a lado embaixo do mapa */
+.mapa-acoes{display:flex;flex-wrap:wrap;gap:10px}
+.mapa-acoes .botao{font-size:14px;padding:12px 20px}
 
 /* páginas de confiança no rodapé: discretas, mas presentes em todo lugar */
 .rodape__legais{display:flex;gap:20px}
