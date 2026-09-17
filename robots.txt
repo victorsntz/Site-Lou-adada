@@ -1,0 +1,4 @@
+# Endereço provisório de teste. Nada aqui deve ser indexado:
+# o site de verdade vai morar no domínio próprio.
+User-agent: *
+Disallow: /
